@@ -6,7 +6,7 @@ terraform {
   #   dev  : terraform init -backend-config=backends/dev.hcl
   #   prod : terraform init -reconfigure -backend-config=backends/prod.hcl
   backend "s3" {
-    bucket       = "bada-tfstate-165749212250-ap-northeast-2"
+    # Supply the state bucket at init time: -backend-config="bucket=<TF_STATE_BUCKET>"
     region       = "ap-northeast-2"
     use_lockfile = true
     encrypt      = true
