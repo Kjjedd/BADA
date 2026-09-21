@@ -21,7 +21,7 @@ db_final_snapshot_identifier           = "bada-prod-postgres-final-snapshot"
 rehearsal_db_identifier                = "bada-prod-postgres-multiaz"
 rehearsal_db_final_snapshot_identifier = "bada-prod-postgres-multiaz-final-snapshot"
 use_rehearsal_multiaz_db_as_app_db     = true
-cognito_domain_prefix                  = "bada-prod-165749212250"
+cognito_domain_prefix                  = "bada-prod-<AWS_ACCOUNT_ID>"
 
 # 3-tier + 고도화 토글 (prod는 전부 on)
 nat_gateway_enabled    = true
@@ -33,8 +33,8 @@ security_monitoring_enabled = false
 
 # 컨테이너 이미지: prod ECR은 초기 비어있으므로 기존 dev ECR latest를 참조
 # (prod 전용 CD 파이프라인 구성 전까지 임시. 별도 push 시 prod ECR URI로 교체)
-api_container_image    = "165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest"
-worker_container_image = "165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest"
+api_container_image    = "<AWS_ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest"
+worker_container_image = "<AWS_ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest"
 
 # ── 시크릿 (실제 prod.tfvars에만, git 커밋 금지) ──
 # db_password          = "..."
