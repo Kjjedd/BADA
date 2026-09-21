@@ -20,7 +20,7 @@ concurrency:
 
 env:
   AWS_REGION: ap-northeast-2
-  AWS_PLAN_ROLE_ARN: arn:aws:iam::165749212250:role/bada-dev-github-actions-plan-role
+  AWS_PLAN_ROLE_ARN: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/bada-dev-github-actions-plan-role
   WORKDIR: infra
   # 필수 민감 변수는 PR plan에서도 모두 주입해야 한다.
   # 실제 값이 없으면 terraform plan 자체가 실패한다.
@@ -39,8 +39,8 @@ env:
   TF_VAR_frontend_enabled: "false"
   TF_VAR_frontend_desired_count: "0"
   TF_VAR_monitoring_enabled: "true"
-  TF_VAR_api_container_image: 165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest
-  TF_VAR_worker_container_image: 165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest
+  TF_VAR_api_container_image: ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest
+  TF_VAR_worker_container_image: ${{ vars.AWS_ACCOUNT_ID }}.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest
   TF_VAR_backend_desired_count: "1"
   TF_VAR_worker_desired_count: "1"
   # X-Ray: 프로덕션 apply 값(true)과 일치시켜 PR 플랜의 태스크 정의 drift 오탐 방지.
@@ -51,7 +51,7 @@ env:
   TF_VAR_worker_task_memory: "1024"
   TF_VAR_cognito_callback_urls: '["https://api.badasoft.com/auth/cognito/callback"]'
   TF_VAR_cognito_logout_urls: '["https://badasoft.com/"]'
-  TF_VAR_alarm_email_endpoints: '["badajoa0710@gmail.com"]'
+  TF_VAR_alarm_email_endpoints: '["${{ vars.ALARM_EMAIL_ENDPOINT }}"]'
   TF_VAR_enable_google_identity_provider: "true"
   TF_VAR_google_oauth_client_id: ${{ secrets.TF_GOOGLE_OAUTH_CLIENT_ID }}
   TF_VAR_google_oauth_client_secret: ${{ secrets.TF_GOOGLE_OAUTH_CLIENT_SECRET }}
