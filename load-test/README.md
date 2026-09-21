@@ -32,7 +32,7 @@ Auto Scaling(#4) 실증과 부하 특성 파악을 위한 부하 테스트 시�
 - `perf` 대규모 테스트에서는 `TARGET_URL="http://<perf-alb-dns>"`(=`$PERF_TARGET_URL`), `--queue bada-perf-analysis`를 명시한다. 기본값을 그대로 두면 `dev` 환경에 부하가 전달될 수 있다. (perf는 `badasoft.com` DNS 위임 문제로 도메인/HTTPS 미사용, **ALB DNS HTTP**로 수행. `https://api.perf.badasoft.com`은 위임 복구 시 옵션)
 - 운영·검증 트래픽과 겹치지 않는 실행 창을 확보하고, 시작/종료 시각을 팀에 공유한다.
 - 낮은 값으로 사전 점검 후 단계적으로 부하를 올린다.
-- AWS 자격증명은 **`bada-team` 프로파일**(BADA 계정 165749212250). `default`는 다른 계정이라 주의.
+- AWS 자격증명은 **`bada-team` 프로파일**(BADA 계정 <AWS_ACCOUNT_ID>). `default`는 다른 계정이라 주의.
 - Auto Scaling 적용 확인:
   ```bash
   aws application-autoscaling describe-scalable-targets \
