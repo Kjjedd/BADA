@@ -99,7 +99,7 @@ Cognito Hosted UI / OAuth:
 ```text
 User Pool ID : ap-northeast-2_5K39SlMFg
 Client ID    : 2n7fd1lbtifh3d3269i400es1f
-Domain       : https://bada-dev-165749212250.auth.ap-northeast-2.amazoncognito.com/
+Domain       : https://bada-dev-<AWS_ACCOUNT_ID>.auth.ap-northeast-2.amazoncognito.com/
 Callback URL : https://api.badasoft.com/auth/cognito/callback
 Sign-out URL : https://badasoft.com/
 OAuth Flow   : Authorization code grant
@@ -172,7 +172,7 @@ develop push
 
 - Workflow: `.github/workflows/deploy-dev.yml`
 - 배포 후 `https://api.badasoft.com/health`가 정확히 HTTP 200인지 확인한다.
-- Deploy Role: `arn:aws:iam::165749212250:role/bada-dev-github-actions-deploy-role`
+- Deploy Role: `arn:aws:iam::<AWS_ACCOUNT_ID>:role/bada-dev-github-actions-deploy-role`
 - Trigger: `develop` push 또는 수동 실행
 - Scope: Backend ECS Service 우선 배포
 - Health Check: 고정 URL `https://api.badasoft.com/health`에 대해 HTTP 200을 검증
@@ -190,7 +190,7 @@ develop push
 ```
 
 - Workflow: `.github/workflows/deploy-dev-worker.yml`
-- Deploy Role: `arn:aws:iam::165749212250:role/bada-dev-github-actions-deploy-role`
+- Deploy Role: `arn:aws:iam::<AWS_ACCOUNT_ID>:role/bada-dev-github-actions-deploy-role`
 - Trigger: `worker/**` 변경이 포함된 `develop` push 또는 수동 실행
 - Scope: Worker ECS Service 배포 준비
 - 현재 기준: Worker SQS consumer 검증 완료, `desired_count = 1`
