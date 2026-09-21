@@ -31,14 +31,14 @@ s3_abort_incomplete_mpu_days = 7
 s3_gateway_endpoint_enabled = true
 
 # Cognito Hosted UI / OAuth authorization code grant.
-cognito_domain_prefix = "bada-dev-165749212250"
+cognito_domain_prefix = "bada-dev-<AWS_ACCOUNT_ID>"
 cognito_callback_urls = ["https://api.badasoft.com/auth/cognito/callback"]
 cognito_logout_urls   = ["https://badasoft.com/"]
 cognito_oauth_scopes  = ["openid", "email", "profile"]
 
 # Google OAuth credentials must stay in the ignored terraform.tfvars file.
 # Google redirect URI:
-# https://bada-dev-165749212250.auth.ap-northeast-2.amazoncognito.com/oauth2/idpresponse
+# https://bada-dev-<AWS_ACCOUNT_ID>.auth.ap-northeast-2.amazoncognito.com/oauth2/idpresponse
 enable_google_identity_provider = false
 google_oauth_client_id           = "replace-me.apps.googleusercontent.com"
 google_oauth_client_secret       = "replace-me"
