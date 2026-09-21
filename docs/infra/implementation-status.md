@@ -155,7 +155,7 @@ Worker는 장기 실행 SQS consumer로 상시 실행되며 분석, 음성 전�
 | --- | --- | --- |
 | Cognito User Pool | 완료(미사용 레거시) | `ap-northeast-2_5K39SlMFg` |
 | Cognito App Client | 완료 | Authorization Code Grant, callback/logout URL, `openid email profile`, `COGNITO`/`Google` provider 적용 |
-| Cognito Hosted UI Domain | 완료 | `https://bada-dev-165749212250.auth.ap-northeast-2.amazoncognito.com/` |
+| Cognito Hosted UI Domain | 완료 | `https://bada-dev-<AWS_ACCOUNT_ID>.auth.ap-northeast-2.amazoncognito.com/` |
 | Cognito Google IdP | 완료 | Terraform apply 및 Google OAuth `302` redirect 검증 |
 | Secrets Manager | 완료 | DB 접속 정보와 앱 secret |
 | SSM Parameter Store | 완료 | Cognito domain/redirect/logout/scopes를 포함한 비민감 설정 |
@@ -166,7 +166,7 @@ Cognito 연동값:
 ```text
 COGNITO_USER_POOL_ID=ap-northeast-2_5K39SlMFg
 COGNITO_CLIENT_ID=2n7fd1lbtifh3d3269i400es1f
-COGNITO_DOMAIN=https://bada-dev-165749212250.auth.ap-northeast-2.amazoncognito.com/
+COGNITO_DOMAIN=https://bada-dev-<AWS_ACCOUNT_ID>.auth.ap-northeast-2.amazoncognito.com/
 COGNITO_REDIRECT_URI=https://api.badasoft.com/auth/cognito/callback
 COGNITO_LOGOUT_URI=https://badasoft.com/
 COGNITO_SCOPES=openid email profile
