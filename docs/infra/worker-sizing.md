@@ -94,7 +94,7 @@ Worker가 처리하는 작업(증거 1건 기준):
 
 ### Bedrock API Quota (실측)
 
-AWS Service Quotas에서 확인한 우리 계정(`165749212250`) ap-northeast-2 기준.
+AWS Service Quotas에서 확인한 우리 계정(`<AWS_ACCOUNT_ID>`) ap-northeast-2 기준.
 사용 모델: `global.anthropic.claude-sonnet-4-6` (Cross-region inference)
 
 | 항목 | Quota | 비고 |
