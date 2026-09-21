@@ -52,8 +52,8 @@ worker_translate_mode               = "mock"
 worker_structured_engine            = "mock"
 
 # ── 컨테이너 이미지: 기존 dev ECR latest 재사용 (perf 전용 CD 없음) ──
-api_container_image    = "165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest"
-worker_container_image = "165749212250.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest"
+api_container_image    = "<AWS_ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-backend:latest"
+worker_container_image = "<AWS_ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com/bada-dev-worker:latest"
 
 # ── ECS 태스크 사이즈 / 초기 desired ──
 # 기립 검증: desired 1/1, 작게. 본 성능 검증: desired 2/2 + 아래 max 상향.
@@ -88,7 +88,7 @@ rehearsal_db_skip_final_snapshot       = true
 use_rehearsal_multiaz_db_as_app_db     = false
 
 # ── Cognito: perf 전용 도메인 prefix + 콜백/로그아웃 URL ──
-cognito_domain_prefix           = "bada-perf-165749212250"
+cognito_domain_prefix           = "bada-perf-<AWS_ACCOUNT_ID>"
 enable_google_identity_provider = false
 cognito_callback_urls           = ["https://api.perf.badasoft.com/auth/cognito/callback"]
 cognito_logout_urls             = ["https://perf.badasoft.com/"]
