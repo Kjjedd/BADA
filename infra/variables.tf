@@ -19,7 +19,7 @@ variable "aws_region" {
 variable "mcp_operator_principal_arns" {
   description = "IAM principal ARNs allowed to assume the read-only CloudWatch MCP role"
   type        = list(string)
-  default     = ["arn:aws:iam::165749212250:user/awsuser"]
+  default     = []
 
   validation {
     condition     = length(var.mcp_operator_principal_arns) > 0
@@ -145,7 +145,7 @@ variable "app_port" {
 variable "cognito_domain_prefix" {
   description = "Globally unique Cognito Hosted UI domain prefix"
   type        = string
-  default     = "bada-dev-165749212250"
+  # Set this in a private tfvars file; do not commit environment-specific values.
 }
 
 variable "cognito_callback_urls" {
