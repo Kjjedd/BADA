@@ -9,7 +9,7 @@
 
 "분석 실행"의 스피너는 워커가 `analyze_case`를 **AnalysisResult 저장까지** 끝내는 시간이다. PDF는 그 커밋 이후에 생성되므로 스피너에 포함되지 않는다(결과 페이지에서 "생성중"으로 표시됨).
 
-## 실측 (CloudWatch Logs / Transcribe API / Bedrock 지표 — bada-team 계정 165749212250)
+## 실측 (CloudWatch Logs / Transcribe API / Bedrock 지표 — bada-team 계정 <AWS_ACCOUNT_ID>)
 
 - **음성 케이스**: `analyze_case` ~35초 — 이 중 **음성 entity 구조화(Bedrock 텍스트) ≈13초**
 - **OCR 케이스(1127684b, 문서 2개)**: `analyze_case` **76초**, 이 중 **OCR(vision) 0→53.7초가 지배(71%)**
